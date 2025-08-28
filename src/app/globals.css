@@ -1,9 +1,50 @@
 @import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
 
 :root {
-  --background: #ffffff;
+  --background: #F9FAF5;
+  --customBackground: #F9FAF5;
   --foreground: #171717;
+  --customDark: #2B402E;
+  --customGray: #A0A0A0;
+  --customGreen: #2b6f62;
+  --custom-button-bg: rgba(255, 255, 255, 0.5);
+  --customBlur: rgba(0, 0, 0, 0.5);
+  --customGradient :linear-gradient(150deg, #2b6f62, #3d9988);
+  --customGradientShadow: linear-gradient(0deg, #134E5E, #71b28000);
 }
+/* 399A8A */
+
+/* --customGradientShadow: linear-gradient(0deg, #134E5E, #71b28000); */
+.scrollbar-hidden {
+  overflow: scroll;
+  -ms-overflow-style: none;  /* IE и Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari и Opera */
+}
+
+.bg-gradient-shadow {
+  background-image: var(--customGradientShadow);
+}
+
+.bg-gradient-custom {
+  background: var(--customGradient)
+}
+
+/* linear-gradient(150deg, #10ab8e, #39bfa6 35%, #3bfbd7) */
+
+/* linear-gradient(
+    150deg, 
+    #E09477 0%, 
+    #F3A88D 35%, 
+    #FFE395 100%
+  ); */
+
+    /* #8FD2C7 75%, 
+    #399A8A 100% */
 
 @theme inline {
   --color-background: var(--background);
@@ -12,15 +53,241 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-raleway);
+  font-feature-settings: 'lnum' 1, 'tnum' 1;
+}
+
+.swiper-slide.swiper-slide-next.flex.justify-center,
+.swiper-slide.flex.justify-center
+{
+  height: unset !important;
+}
+
+img{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+summary {
+  display: flex;
+  align-items: center; /* центрируем по вертикали */
+  cursor: pointer;
+}
+
+#map{
+  margin-block: auto;
+}
+
+#map path {
+  fill: #358074; /* Базовый цвет */
+  stroke: rgba(255, 255, 255, 0.6);
+  filter: drop-shadow(0px 5px 10px rgba(14, 30, 25, 0.5));
+}
+
+#map path.active{
+    fill: gold;
+}
+
+#map text{
+    fill: #effdff;
+}
+
+#map text.active{
+    fill: #fff;
+}
+
+/* Группа 1 – немного светлее */
+#map path[data-index="3"],
+#map path[data-index="4"],
+#map path[data-index="5"] {
+  fill: #358074cc; 
+}
+
+/* Группа 2 – более насыщенный */
+#map path[data-index="14"],
+#map path[data-index="6"],
+#map path[data-index="16"],
+#map path[data-index="11"] {
+  fill: #2d6f65;
+}
+
+/* Группа 3 – базовый цвет */
+#map path[data-index="8"],
+#map path[data-index="10"],
+#map path[data-index="18"] {
+  fill: #358074; 
+}
+
+/* Группа 4 – чуть теплее */
+#map path[data-index="12"],
+#map path[data-index="13"] {
+  fill: #409c89; 
+}
+
+/* Группа 5 – слегка затемнённый */
+#map path[data-index="15"],
+#map path[data-index="9"] {
+  fill: #2b6f62;
+}
+
+/* Группа 6 – полупрозрачный акцент */
+#map path[data-index="7"],
+#map path[data-index="19"],
+#map path[data-index="20"] {
+  fill: #3d9988;
+}
+
+
+
+.vbp-header-menu-button__svg {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transform: scaleX(-1);
+}
+
+.vbp-header-menu-button__svg line {
+  stroke: #192a6b;
+  stroke-dasharray: 100%;
+  stroke-dashoffset: 0%;
+  transition: transform 0.3s, stroke-dashoffset .4s;
+  transform-origin: center;
+  stroke-width: 3px;
+}
+
+.vbp-header-menu-button__svg .top {
+  transform: translateY(-35%);
+  -webkit-transform: translateY(-35%);
+  -moz-transform: translateY(35%);
+  -ms-transform: translateY(35%);
+  -o-transform: translateY(35%);
+}
+
+.vbp-header-menu-button__svg .middle {
+  transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  -moz-transform: scaleX(1);
+  -ms-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  transition: opacity .3s, transform .3s;
+  -webkit-transition: opacity .3s, transform .3s;
+  -moz-transition: opacity .3s, transform .3s;
+  -ms-transition: opacity .3s, transform .3s;
+  -o-transition: opacity .3s, transform .3s;
+
+}
+
+.vbp-header-menu-button__svg .bottom {
+  transform: translateY(33%);
+  -webkit-transform: translateY(33%);
+  -moz-transform: translateY(33%);
+  -ms-transform: translateY(33%);
+  -o-transform: translateY(33%);
+  stroke-dasharray: 100%;
+  stroke-dashoffset: 9px;
+}
+.vbp-header-menu-button__svg:hover .bottom {
+  stroke-dashoffset: 0%;
+}
+/*** Mode Croix ***/
+body.menu-open .vbp-header-menu-button__svg .top {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  stroke-linecap: round;
+}
+
+body.menu-open .vbp-header-menu-button__svg .middle {
+  transform: scaleX(0.1);
+  -webkit-transform: scaleX(0.1);
+  -moz-transform: scaleX(0.1);
+  -ms-transform: scaleX(0.1);
+  -o-transform: scaleX(0.1);
+  opacity: 0;
+}
+
+body.menu-open .vbp-header-menu-button__svg line.bottom {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  stroke-linecap: round;
+}
+
+body.menu-open .vbp-header-menu-button__svg .bottom {
+  stroke-dashoffset: 0%;
+}
+
+.knopkaKotoruyuYaNeLubluNoAluaZastavilaMenyaEyoDelat {
+background-color: #c1c1c1;
+font-weight: bold;
+color: #f9faf5;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 35px;
+  aspect-ratio: 1;
+  --_g: no-repeat radial-gradient(farthest-side,#366a49 94%,#ffffff00);
+  background:
+    var(--_g) 0    0,
+    var(--_g) 100% 0,
+    var(--_g) 100% 100%,
+    var(--_g) 0    100%;
+  background-size: 40% 40%;
+  animation: l38 .5s infinite; 
+}
+@keyframes l38 {
+  100% {background-position: 100% 0,100% 100%,0 100%,0 0}
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.rotate-slow {
+  animation: spin 25s linear infinite;
+}
+
+.rotate-medium {
+  animation: spin 20s linear infinite;
+}
+
+.rotate-fast {
+  animation: spin 15s linear infinite;
+}
+
+.rotate-faster {
+  animation: spin 6s linear infinite;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset !important; /* заливаем белым или нужным цветом */
+  -webkit-text-fill-color: var(--customGreen) !important;
+  transition: background-color 5000s ease-in-out 0s; /* хак чтобы фон не возвращался */
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #fff inset !important;
+  -webkit-text-fill-color: var(--customGreen) !important;
+}
+
+input {
+  background-color: transparent !important;
+  background: transparent !important;
 }
