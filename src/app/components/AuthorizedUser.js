@@ -71,7 +71,7 @@ export default function AuthorizedUser() {
             alt="User Avatar"
           />
           <h4 className="text-[16px] text-[var(--customDark)] text-center mt-[15px] leading-[18px]">
-            <b>{user.user_name} {user.user_surename} {user.user_patronymic}</b>
+            <b>{user.user_surename} {user.user_name} {user.user_patronymic}</b>
           </h4>
           <p className="text-[12px] text-[var(--customGray)] text-center mt-[5px]">
             <b>

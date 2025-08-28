@@ -55,7 +55,7 @@ export default function Zayavki() {
         {!loading && filteredOrders.map((order, i) => (
           <Link
             key={i}
-            href={order.link || '#'}
+            href={order.link || order.url ||'#'}
             target={order.link ? "_blank" : undefined}
             rel={order.link ? "noreferrer" : undefined}
             className="p-[10px] mb-2 flex gap-[5px] items-center justify-between bg-[var(--customBackground)] rounded-[5px]"

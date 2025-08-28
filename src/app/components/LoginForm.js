@@ -87,7 +87,7 @@ export default function LoginForm() {
                 onKeyDown={(e) => {
                   if (e.key === 'Enter') handleLogin();
                 }}
-                className="text-[var(--customGreen)] w-full placeholder-white outline-none"
+                className="w-full placeholder-white outline-none"
                 placeholder={locale === "ru" ? 'Введите свой пароль' : 'Құпия сөзіңізді енгізіңіз'}
                 autocomplete="new-password" 
               />
