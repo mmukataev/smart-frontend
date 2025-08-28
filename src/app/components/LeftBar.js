@@ -197,7 +197,7 @@ export default function LeftBar() {
 
           <div className='flex flex-col gap-[10px]'>
             <Link className="flex items-center gap-[5px] mt-auto" 
-            href={locale === "ru" ? '/ip/ИП рус.pdf' : '/ip/ИП каз.pdf'}
+            href={locale === "ru" ? '/ip/ruip.pdf' : '/ip/kzip.pdf'}
             target="_blank" rel="noopener noreferrer"
             >
             <div className="flex items-center justify-center w-[32px] h-[32px]">
